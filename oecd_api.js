@@ -3,6 +3,15 @@ const BASE_URL = 'http://stats.oecd.org/sdmx-json/data/'
 function Oecd(){
 
 };
+Oecd.prototype.oecd_url = function(dataset, dimensions){
+	var self = this;
+	
+	var dimstrs = dimensions.map(get_dimstr);
+	var dimstr = dimstrs.join(".");
+	
+	var url = BASE_URL +'/'+dataset+'/'+dimstr+'/all';
+	return url;
+};
 
 Oecd.prototype.oecd_request = function(dataset, dimensions, params, preformatted){
 	var self = this;
@@ -97,8 +106,9 @@ Oecd.prototype.get_dataset_structure = function(dataset){
 
 
 var oecd = new Oecd({});
-
-
+// put them in opposite order
+// click on each element and make a query, and then make thw query
+// TODO: find some way to show this
 /*
 //http://stats.oecd.org/sdmx-json/data/QNA/AUS+AUT+BEL+CAN+CHL.GDP+B1_GE.CUR+VOBARSA.Q/all?startTime=2009-Q1&endTime=2011-Q4'
 // Gross domestic product (expenditure approach)

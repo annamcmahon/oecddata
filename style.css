@@ -95,3 +95,27 @@ table tr:hover td {
 	background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
 	background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);	
 }
+button.link {
+	display: block;
+	padding: 4px;
+}
+.active_button{
+	background: blue;
+}
+
+#tableDiv {
+	display: inline-block;
+}
+#structureTableDiv {
+	display: inline-block;
+	width: 80%;
+}
+#queryDiv {
+	display: inline-block;
+	width: 20%;
+	vertical-align: top;
+	position: fixed;
+}
+div#query_options {
+	word-wrap: break-word;
+}
