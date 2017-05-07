@@ -100,7 +100,7 @@ button.link {
 	padding: 4px;
 }
 .active_button{
-	background: blue;
+	background: rgba(212, 253, 255, 0.46);
 }
 
 #tableDiv {
@@ -119,3 +119,14 @@ button.link {
 div#queryOptions {
 	word-wrap: break-word;
 }
+div#warning{
+	color:red;
+}
+td{
+	vertical-align:top;
+}
+.tableTitle{
+	margin:0px;
+	margin-left:25px;
+}
+*{font-family:Helvetica;}

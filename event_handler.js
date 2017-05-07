@@ -11,9 +11,11 @@ window.onload= function() {
 		});
 	});
 };
-var required = function(x){
-	
-}
+
+
+/*
+Fill the datasets table with all of the dataset names and common names queired form oecd
+*/
 var fillDatasetsTable = function(body){
 	var table = document.getElementById("datasetsTable");
 	for(dataset in body){
@@ -26,6 +28,11 @@ var fillDatasetsTable = function(body){
 	return table;
 }
 
+
+/*
+fill the dataset structure table (the table you get to when you click on the table) 
+ with the dimensions and possible dimmension values
+*/
 var makeDatasetStructureTable = function(body){
 	var struct_table = document.getElementById("datasetsStructTable");
 	for(dataset in body){
@@ -47,6 +54,11 @@ var makeDatasetStructureTable = function(body){
 	}
 	return struct_table;
 }
+
+
+/*
+ In the table of dimensions, this handles the adding of a dimension to the query (via click)
+ */
 var clickHandler = function(x){
 	// set the selected state of the button
 	if (!$(this).hasClass("active_button")) {
@@ -72,10 +84,14 @@ var clickHandler = function(x){
 	for(x in query_selections_map){
 		query_arrays.push(Array.from(query_selections_map[x]));
 	}
-	var url = oecd.oecd_url(document.getElementById("datasetTitle").innerHTML, query_arrays);
+	var url = oecd.oecd_url(document.getElementById("datasetTitle").innerHTML.split(' ')[1], query_arrays);
 	document.getElementById("queryOptions").innerHTML = url;
 }
 
+
+/*
+Make a query to get Oecd data
+*/
 var makeQuery = function(){
 	// checks to make sure query includes required dimensions
 	var arr1 =required;
@@ -103,8 +119,7 @@ var selectDataSet = function(event){
 	// set up the dataset structure page
 	$('#dataset_structure').load('dataset_structure.html', function(){
 		document.getElementById("makeQueryButton").addEventListener("click", makeQuery);
-		document.getElementById("datasetTitle").innerHTML = dataset;
-		document.getElementById("datasetCommonTitle").innerHTML = dataset_common;
+		document.getElementById("datasetTitle").innerHTML += dataset+ " ("+dataset_common+") ";
 	});
 	
 	oecd.get_dataset_structure(dataset).then(function(body){
