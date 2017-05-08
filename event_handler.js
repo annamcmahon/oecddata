@@ -84,7 +84,7 @@ var clickHandler = function(x){
 	for(x in query_selections_map){
 		query_arrays.push(Array.from(query_selections_map[x]));
 	}
-	var url = oecd.oecd_url(document.getElementById("datasetTitle").innerHTML.split(' ')[1], query_arrays);
+	var url = oecd.oecd_url(document.getElementById("datasetTitle").innerHTML.split(' ')[2], query_arrays);
 	document.getElementById("queryOptions").innerHTML = url;
 }
 
