@@ -2,10 +2,7 @@
 ## About 
 The Organization for Economic Cooperation and Development's [(OECD)](https://data.oecd.org/) has a ton of datasets. They also have an [API](https://data.oecd.org/api/) for interacting with these datasets. 
 
-### Existing OECD Api Details 
-* All requests to the API are of the format:
-http://stats.oecd.org/SDMX-JSON/data/<dataset identifier>/<filter expression>/<agency name>[ ?<additional parameters>]
-
+### Existing OECD Api examples requests: 
 * Get all the data from a dataset:  
 http://stats.oecd.org/sdmx-json/data/QNA/all/all?startTime=2009-Q1&endTime=2011-Q4
 
